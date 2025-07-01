@@ -12,11 +12,12 @@ struct MainButton: View {
     let isDisabled: Bool
     let isFilled: Bool
     let title: String
+    let action: () -> Void?
     
     var body: some View {
         Button {
             if !isDisabled {
-                
+                action()
             }
         } label: {
             Text(title)
@@ -60,5 +61,5 @@ struct MainButton: View {
 }
 
 #Preview {
-    MainButton(isDisabled: false, isFilled: true, title: "Giriş Yap")
+    MainButton(isDisabled: false, isFilled: true, title: "Giriş Yap", action: {})
 }
