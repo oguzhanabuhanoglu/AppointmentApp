@@ -42,7 +42,21 @@ struct VerificationCodeView: View {
                 }
                 .padding(.bottom)
 
-                MainButton(isDisabled: false, isFilled: true, title: "Devam Et", action: {})
+//                MainButton(isDisabled: false, isFilled: true, title: "Devam Et", action: {})
+                NavigationLink(destination: UserHomeView()) {
+                    Text("Devam Et")
+                        .foregroundStyle(.black)
+                        .font(.appFont(.interVariable, size: 16))
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(.golden)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(.golden, lineWidth: 1)
+                        }
+                        .cornerRadius(12)
+                        .padding(.horizontal)
+                }
             }
             .offset(y: -120)
             .onAppear {
@@ -69,8 +83,7 @@ struct VerificationCodeView: View {
         }
     }
 
-    // Kod kutusu bileşeni
-    @ViewBuilder
+   
     func codeBox(text: Binding<String>, tag: CodeField, next: CodeField?, previous: CodeField?) -> some View {
         TextField("", text: text)
             .foregroundColor(.white)

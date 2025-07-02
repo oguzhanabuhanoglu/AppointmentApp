@@ -39,7 +39,7 @@ struct MainButton: View {
     
     private var textColor: Color {
         if isDisabled {
-            return .disabledText
+            return .secondaryText
         } else {
             return isFilled ? .black : .golden
         }
