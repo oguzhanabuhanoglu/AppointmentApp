@@ -18,19 +18,19 @@ struct SignUpView: View {
             
             Color.appBackground.edgesIgnoringSafeArea(.all)
             
-            VStack {
+            VStack(spacing: 12) {
                 
                 Text("Müşteri Kayıt")
                     .foregroundStyle(.white)
                     .font(.appFont(.inriaRegular, size: 20))
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal)
+                    
                 
                 MainTextField("Adınızı Giriniz...", text: $viewModel.name)
-                    .padding(.horizontal)
+                   
                 
                 MainTextField("Soyadınızı Giriniz...", text: $viewModel.surname)
-                    .padding()
+                   
                 
                 HStack {
 
@@ -57,26 +57,16 @@ struct SignUpView: View {
                     MainTextField("Telefon Numarnızı Giriniz...", text: $viewModel.phoneNumber)
                        
                 }
-                .padding(.horizontal)
+                
                 .padding(.bottom)
                 
 //                MainButton(isDisabled: false, isFilled: true, title: "Kayıt Ol")
 //                    .padding(.vertical)
                 
                 NavigationLink(destination: VerificationCodeView()) {
-                    Text("Kayıt Ol")
-                        .foregroundStyle(.black)
-                        .font(.appFont(.interVariable, size: 16))
-                        .padding(.vertical, 16)
-                        .frame(maxWidth: .infinity)
-                        .background(.golden)
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 12)
-                                .stroke(.golden, lineWidth: 1)
-                        }
-                        .cornerRadius(12)
-                        .padding(.horizontal)
+                    MainButton(isDisabled: false, isFilled: true, title: "Kayıt Ol")
                 }
+                
                 Button {
                     //
                 } label: {
@@ -86,9 +76,11 @@ struct SignUpView: View {
                         .underline()
                 }
                 .padding()
+               
 
+                Spacer()
             }
-            .offset(y: -120)
+            .padding(.top, 80)
             .navigationBarBackButtonHidden()
             .toolbar {
                 ToolbarItem(placement: .principal) {
@@ -107,7 +99,8 @@ struct SignUpView: View {
                 }
 
             }
-            
+            .padding(.horizontal, 24)
+           
         }
     }
 }

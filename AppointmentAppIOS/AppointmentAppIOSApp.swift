@@ -11,7 +11,8 @@ import SwiftUI
 struct AppointmentAppIOSApp: App {
     var body: some Scene {
         WindowGroup {
-            WelcomingView()
+            UserHomeView()
+                .preferredColorScheme(.dark)
         }
     }
 }

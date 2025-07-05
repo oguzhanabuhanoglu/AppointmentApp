@@ -25,7 +25,7 @@ struct LoginView: View {
                     .foregroundStyle(.white)
                     .font(.appFont(.inriaRegular, size: 20))
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal)
+                   
                 
                 HStack {
                     Menu {
@@ -51,11 +51,10 @@ struct LoginView: View {
                     MainTextField("Telefon Numarnızı Giriniz...", text: $viewModel.phoneNumber)
                        
                 }
-                .padding(.horizontal)
                 .padding(.bottom)
                
                 
-                MainButton(isDisabled: false, isFilled: true, title: "Giriş Yap", action: {})
+                MainButton(isDisabled: false, isFilled: true, title: "Giriş Yap"/*, action: {}*/)
                 .padding(.bottom)
                 
                 NavigationLink {
@@ -67,10 +66,10 @@ struct LoginView: View {
                         .underline()
                 }
 
-                
+                Spacer()
                 
             }
-            .offset(y: -120)
+            .padding(.top, 80)
             .navigationBarBackButtonHidden()
             .toolbar {
                 ToolbarItem(placement: .principal) {
@@ -87,8 +86,8 @@ struct LoginView: View {
                         .foregroundStyle(.white)
                         .frame(width: 25, height: 25)
                 }
-                
             }
+            .padding(.horizontal, 24)
         }
         
     }

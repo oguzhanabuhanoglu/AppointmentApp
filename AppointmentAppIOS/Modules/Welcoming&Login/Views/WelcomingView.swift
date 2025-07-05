@@ -35,18 +35,20 @@ struct WelcomingView: View {
                             .padding(.vertical, 16)
                             .background(.golden)
                             .cornerRadius(24)
-                            .padding(.horizontal)
                             
                     }
                     .padding(.vertical)
                     .offset(y: -20)
                    
                     
-                    MainButton(isDisabled: false, isFilled: false, title: "Berber Girişi", action: {})
+                    MainButton(isDisabled: false, isFilled: false, title: "Berber Girişi"/*, action: {}*/)
                         .offset(y: -20)
+                        
+                        
                         
                     
                 }
+                .padding(.horizontal, 24)
             }
         }
         

@@ -26,15 +26,14 @@ struct VerificationCodeView: View {
         ZStack {
             Color.appBackground.ignoresSafeArea(.all)
 
-            VStack(spacing: 20) {
+            VStack(spacing: 12) {
                 Text("Doğrulama kodunu giriniz")
                     .foregroundStyle(.white)
                     .font(.appFont(.inriaRegular, size: 20))
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal)
 
                 // Kod kutuları
-                HStack(spacing: 20) {
+                HStack {
                     codeBox(text: $code1, tag: .field1, next: .field2, previous: nil)
                     codeBox(text: $code2, tag: .field2, next: .field3, previous: .field1)
                     codeBox(text: $code3, tag: .field3, next: .field4, previous: .field2)
@@ -44,21 +43,12 @@ struct VerificationCodeView: View {
 
 //                MainButton(isDisabled: false, isFilled: true, title: "Devam Et", action: {})
                 NavigationLink(destination: UserHomeView()) {
-                    Text("Devam Et")
-                        .foregroundStyle(.black)
-                        .font(.appFont(.interVariable, size: 16))
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(.golden)
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 12)
-                                .stroke(.golden, lineWidth: 1)
-                        }
-                        .cornerRadius(12)
-                        .padding(.horizontal)
+                    MainButton(isDisabled: false, isFilled: true, title: "Devam Et")
                 }
+                
+                Spacer()
             }
-            .offset(y: -120)
+            .padding(.top, 80)
             .onAppear {
                 focusedField = .field1
             }
@@ -80,6 +70,7 @@ struct VerificationCodeView: View {
                     }
                 }
             }
+            .padding(.horizontal, 24)
         }
     }
 
@@ -92,7 +83,7 @@ struct VerificationCodeView: View {
             .textContentType(.oneTimeCode)
             .multilineTextAlignment(.center)
             .focused($focusedField, equals: tag)
-            .frame(width: 60, height: 60)
+            .frame(width: 80, height: 60)
             .background(
                 RoundedRectangle(cornerRadius: 12)
                     .stroke(.golden, lineWidth: 1)

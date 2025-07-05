@@ -12,14 +12,14 @@ struct MainButton: View {
     let isDisabled: Bool
     let isFilled: Bool
     let title: String
-    let action: () -> Void?
+//    let action: () -> Void?
     
     var body: some View {
-        Button {
-            if !isDisabled {
-                action()
-            }
-        } label: {
+//        Button {
+//            if !isDisabled {
+//                action()
+//            }
+//        } label: {
             Text(title)
                 .font(.appFont(.interVariable, size: 16))
                 .foregroundStyle(textColor)
@@ -31,10 +31,10 @@ struct MainButton: View {
                         .stroke(borderColor, lineWidth: 2)
                 }
                 .cornerRadius(24)
-        }
+//        }
         .disabled(isDisabled)
         .opacity(isDisabled ? 0.5 : 1.0)
-        .padding(.horizontal)
+        .frame(maxHeight: 50)
     }
     
     private var textColor: Color {
@@ -61,5 +61,5 @@ struct MainButton: View {
 }
 
 #Preview {
-    MainButton(isDisabled: false, isFilled: true, title: "Giriş Yap", action: {})
+    MainButton(isDisabled: false, isFilled: true, title: "Giriş Yap"/*, action: {}*/)
 }
